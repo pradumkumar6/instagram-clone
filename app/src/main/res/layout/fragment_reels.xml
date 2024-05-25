@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="isThereAnyPosts"
+            type="Boolean" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:id="@+id/noPostsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No Reels"
+            android:textSize="20sp"
+            android:visibility="@{isThereAnyPosts? View.GONE : View.VISIBLE}"
+            tools:visibility="visible"
+            android:fontFamily="@font/inter_semibold"
+            android:gravity="center"
+            android:textColor="@color/settingsImageColor"
+            android:layout_centerInParent="true" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager2"
+            tools:visibility="gone"
+            android:orientation="vertical"
+            android:layout_centerInParent="true"
+            android:visibility="@{isThereAnyPosts? View.VISIBLE : View.GONE}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </RelativeLayout>
+
+</layout>
